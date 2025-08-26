@@ -64,11 +64,11 @@ jobs:
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ----------.dkr.ecr.us-east-1.amazonaws.com
       - name: Build Imagem Docker
         run:
-          docker build -t taxhub-app:latest .
+          docker build -t app:latest .
       - name: Tag e push da imagem para ECR
         run: |
-          docker tag taxhub-app:latest 590184085974.dkr.ecr.us-east-1.amazonaws.com/taxhub-app:latest
-          docker push 590184085974.dkr.ecr.us-east-1.amazonaws.com/taxhub-app:latest
+          docker tag app:latest ----------4.dkr.ecr.us-east-1.amazonaws.com/app:latest
+          docker push --------.dkr.ecr.us-east-1.amazonaws.com/app:latest
       - name: Redeploy ECS Service
         run: |
           aws ecs update-service \
